@@ -59,7 +59,8 @@ const t = useTranslations(Astro.props.locale);
 <style>
 	button {
 		position: fixed;
-		top: calc((var(--sl-nav-height) - var(--sl-menu-button-size)) / 2);
+		top: calc((var(--sl-nav-height) - var(--sl-menu-button-size)) / 2 - 0.25rem);
+		/* top: calc((var(--sl-nav-height) - var(--sl-menu-button-size)) / 2); */
 		inset-inline-end: var(--sl-nav-pad-x);
 		z-index: var(--sl-z-index-navbar);
 		border: 0;

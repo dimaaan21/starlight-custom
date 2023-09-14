@@ -38,6 +38,7 @@ const { dir, entry, entryMeta, headings, isFallback, lang, locale } = Astro.prop
 const sidebar = getSidebar(Astro.url.pathname, locale);
 
 const hasSidebar = entry.data.template !== 'splash';
+const hasHeader = false;
 const tocConfig = !hasSidebar
 	? false
 	: entry.data.tableOfContents !== undefined
@@ -89,7 +90,7 @@ const pagefindEnabled =
 		<ThemeProvider />
 		<SkipLink {locale} />
 		<PageFrame {locale} {hasSidebar}>
-			<Header slot="header" {locale} />
+			{hasHeader && <Header slot="header" {locale} />}
 			{hasSidebar && <Sidebar slot="sidebar" {sidebar} {locale} />}
 			<TwoColumnContent {hasToC}>
 				<RightSidebar slot="right-sidebar" {headings} {locale} {tocConfig} />

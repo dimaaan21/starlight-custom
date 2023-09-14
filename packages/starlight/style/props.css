@@ -7,8 +7,10 @@
 	--sl-color-gray-3: hsl(224, 6%, 56%);
 	--sl-color-gray-4: hsl(224, 7%, 36%);
 	--sl-color-gray-5: hsl(224, 10%, 23%);
-	--sl-color-gray-6: hsl(224, 14%, 16%);
-	--sl-color-black: hsl(224, 10%, 10%);
+	--sl-color-gray-6: #161618;
+	--sl-color-black: #1b1b1f;
+	/* --sl-color-gray-6: hsl(224, 14%, 16%); */
+	/* --sl-color-black: hsl(224, 10%, 10%); */
 
 	--sl-hue-orange: 41;
 	--sl-color-orange-low: hsl(var(--sl-hue-orange), 39%, 22%);
@@ -166,7 +168,8 @@
 
 @media (min-width: 50em) {
 	:root {
-		--sl-nav-height: 4rem;
+		--sl-nav-height: 0;
+		/* --sl-nav-height: 4rem; */
 		--sl-nav-pad-x: 1.5rem;
 		--sl-text-h1: var(--sl-text-5xl);
 		--sl-text-h2: var(--sl-text-4xl);

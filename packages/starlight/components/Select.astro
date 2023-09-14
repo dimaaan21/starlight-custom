@@ -2,9 +2,10 @@
 import Icon from '../user-components/Icon.astro';
 
 interface Props {
-	label: string;
+	iconHide: boolean;
+	label?: string;
 	value: string;
-	icon: Parameters<typeof Icon>[0]['name'];
+	icon?: Parameters<typeof Icon>[0]['name'];
 	width?: string;
 	options: Array<{
 		label: string;
@@ -15,8 +16,8 @@ interface Props {
 ---
 
 <label style={`--sl-select-width: ${Astro.props.width}`}>
-	<span class="sr-only">{Astro.props.label}</span>
-	<Icon name={Astro.props.icon} class="icon label-icon" />
+	{Astro.props.label && <span class="sr-only">{Astro.props.label}</span>}
+	{!Astro.props.iconHide && <Icon name={Astro.props.icon!} class="icon label-icon" />}
 	<select value={Astro.props.value}>
 		{
 			Astro.props.options.map(({ value, selected, label }) => (

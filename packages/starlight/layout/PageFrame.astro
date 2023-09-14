@@ -8,11 +8,18 @@ interface Props {
 }
 
 const { hasSidebar, locale } = Astro.props;
+const hasHeader = false;
 const t = useTranslations(locale);
 ---
 
 <div class="page sl-flex">
-	<header class="header"><slot name="header" /></header>
+	{
+		hasHeader && (
+			<header class="header">
+				<slot name="header" />
+			</header>
+		)
+	}
 	{
 		hasSidebar && (
 			<nav class="sidebar" aria-label={t('sidebarNav.accessibleLabel')}>
@@ -57,7 +64,8 @@ const t = useTranslations(locale);
 		z-index: var(--sl-z-index-menu);
 		inset-block: 0;
 		inset-inline-start: 0;
-		padding-top: var(--sl-nav-height);
+		padding-top: 0;
+		/* padding-top: var(--sl-nav-height); */
 		width: 100%;
 		background-color: var(--sl-color-black);
 	}
@@ -72,11 +80,14 @@ const t = useTranslations(locale);
 	}
 
 	.main-frame {
-		padding-top: calc(var(--sl-nav-height) + var(--sl-mobile-toc-height));
+		padding-top: calc(var(--sl-mobile-toc-height));
 		padding-inline-start: var(--sl-content-inline-start);
 	}
 
 	@media (min-width: 50rem) {
+		.main-frame {
+			padding-top: calc(var(--sl-nav-height) + var(--sl-mobile-toc-height));
+		}
 		:global([data-has-sidebar]) .header {
 			padding-inline-end: var(--sl-nav-pad-x);
 		}
